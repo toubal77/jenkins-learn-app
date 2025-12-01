@@ -40,10 +40,16 @@ pipeline {
                 echo 'Starting tests'
 
                 npm test
-                
+
                 echo 'Tests completed.'
                 '''
             }
+        }
+    }
+
+    post {
+        always {
+            junit 'test-results/junit.xml'
         }
     }
 }
